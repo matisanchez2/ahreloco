@@ -8,12 +8,33 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [mensaje, setMensaje] = useState("")
+  const [resultado, setResultado] = useState("")
+
+
+  const Galpe = () => {
+    let url = ""
+    if (resultado === "si") {
+      url = "https://fam.bo/wp-content/uploads/2022/03/galperin-1024x683.jpg"
+    }
+    else if (resultado === "no") {
+      url = "https://www.clarin.com/img/2019/03/26/Ng7jC4r07_720x0__1.jpg"
+    }
+    else {
+      url = "https://statics.forbesargentina.com/2021/11/6194258b448c6.jpg"
+    }
+    return (
+      <img width={600} height={600} src={url} alt="" />
+    )
+  }
+
 
   const onClick = (boton: string) => {
     if (boton === "si") {
+      setResultado("si")
       setMensaje("VAMOS TE QUIERO")
     }
     else {
+      setResultado("no")
       setMensaje("MORITE GATO")
     }
   }
@@ -32,7 +53,7 @@ export default function Home() {
           <button onClick={() => onClick("si")} className='hover:bg-red-400 bg-red-200 text-white px-4 py-1 text-lg'> si </button>
           <button onClick={() => onClick("no")}  >no</button>
         </div>
-        <img src="https://www.clarin.com/img/2019/03/26/Ng7jC4r07_720x0__1.jpg" alt="" />
+        <Galpe />
       </main>
     </>
   )
