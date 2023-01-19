@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [mensaje, setMensaje] = useState("")
 
-  const onClick = (boton) => {
+  const onClick = (boton: string) => {
     if (boton === "si") {
       setMensaje("VAMOS TE QUIERO")
     }
